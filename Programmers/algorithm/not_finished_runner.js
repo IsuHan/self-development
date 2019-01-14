@@ -46,12 +46,15 @@ mislav는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 �
 // }
 
 function solution(participant, completion) {
-    const dic = completion.reduce((obj, t) => (obj[t] = obj[t] ? obj[t] + 1 : 1 , obj), {});
-    console.log(dic)
-    return participant.find(t => {
-        if (dic[t])
-            dic[t] = dic[t]-1;
-        else 
-            return true;
+    // accumulator(ex: { josipa: 1, filipa: 1, marina: 1, nikola: 1 })
+    // 에 accumulator[name]이 있으면 1을 더 추가하고, 없으면 1로 초기화
+    // reduce의 두번째 인자인 {}는 accumulator의 초기값이다.
+    const dic = completion.reduce((accumulator, name) => (accumulator[name] = accumulator[name] ? accumulator[name] + 1 : 1 , accumulator), {});
+
+    return participant.find(name => {
+        if (dic[name])
+            dic[name] = dic[name] - 1;
+        else // dic[name]이 undefined 이거나 0 일 경우
+            return true; // find는 true일 때(조건을 만족할 때), name을 반환
     });
 }
