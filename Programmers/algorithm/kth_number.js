@@ -19,7 +19,7 @@ function solution(array, commands) {
     return answer
 }
 
-// Better Solution
+// Better Solution - https://programmers.co.kr/learn/courses/30/lessons/42748/solution_groups?language=javascript
 function solution(array, commands) {
     // map() 메서드는 배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아 새로운 배열을 반환합니다.
     return commands.map(command => {
