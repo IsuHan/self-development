@@ -19,3 +19,8 @@ function solution(plain) {
  
     return (plain + add).length
 }
+
+/*
+Better Solution:
+plain의 앞부터 하나씩 제외해서 나머지 문자열이 팰린드롬인지 검사. 팰린드롬일 경우, 제외한 문자열만 뒤에 붙인다.
+*/
